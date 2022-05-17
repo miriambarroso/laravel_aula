@@ -2,10 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BancoRequest;
 use Illuminate\Http\Request;
+use App\Models\Banco;
+use App\Models\User;
 
 class BancoController extends Controller
 {
+    private $objUser;
+    private $objBanco;
+
+    public function __construct()
+    {
+        $this->objUser = new User();
+        $this->objBanco = new Banco();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,8 @@ class BancoController extends Controller
      */
     public function index()
     {
-        //
+        $banco = $this->objBanco->all();
+        return view('index', compact('banco'));
     }
 
     /**
@@ -23,7 +36,7 @@ class BancoController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -32,9 +45,16 @@ class BancoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BancoRequest $request)
     {
-        //
+        $cadastrou = $this->objBanco->create([
+            'nome' => $request->nome,
+            'numero' => $request->numero,
+            'ispb' => $request->ispb
+        ]);
+        if($cadastrou){
+            return redirect('banco');
+        }
     }
 
     /**
@@ -66,7 +86,7 @@ class BancoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BancoRequest $request, $id)
     {
         //
     }

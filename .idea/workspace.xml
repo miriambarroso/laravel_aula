@@ -2,102 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d645637-0888-4f8f-a53d-51e10d2816f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/AgenciaRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/BancoRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/banco/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/banco/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/banco/update.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/banco/view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/aula.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aula.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apache/default.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.styleci.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Console/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Exceptions/Handler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Middleware/Authenticate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Middleware/PreventRequestsDuringMaintenance.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Middleware/TrimStrings.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Middleware/TrustHosts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Middleware/TrustProxies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Models/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Providers/AppServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Providers/AuthServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Providers/EventServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Providers/RouteServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/artisan" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bootstrap/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bootstrap/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/broadcasting.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/cache.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/cors.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/filesystems.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/hashing.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/logging.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/mail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/queue.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/sanctum.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/services.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/session.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/view.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/factories/UserFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/seeders/DatabaseSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/en.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/en/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/en/pagination.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/en/passwords.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/en/validation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/welcome.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/channels.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/console.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/web.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storage/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storage/app/public/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storage/framework/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storage/framework/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storage/framework/cache/data/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storage/framework/sessions/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storage/framework/testing/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storage/framework/views/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storage/logs/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/CreatesApplication.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/TestCase.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/Unit/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webpack.mix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BancoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BancoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_04_25_023910_create_item_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -215,16 +153,20 @@
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="28GsnqT9S625LJG6Lqfeflb3Rkb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -246,10 +188,16 @@
       <option name="presentableId" value="Default" />
       <updated>1650854433254</updated>
       <workItem from="1650854439672" duration="959000" />
+      <workItem from="1651180118465" duration="657000" />
+      <workItem from="1651615135291" duration="9703000" />
+      <workItem from="1651856101446" duration="6894000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
