@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BancoRequest;
-use Illuminate\Http\Request;
 use App\Models\Banco;
 use App\Models\User;
 
@@ -42,7 +41,7 @@ class BancoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\BancoRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(BancoRequest $request)
@@ -76,7 +75,9 @@ class BancoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $banco = $this->objBanco->find($id);
+        $users = $this->objUser->all();
+        return view('create', compact('banco', 'users'));
     }
 
     /**
