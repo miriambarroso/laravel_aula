@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Banco;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,10 +19,12 @@ return new class extends Migration
             $table->integer('fone1');
             $table->integer('tipo');
             $table->integer('tipo1');
-            $table->foreignIdFor(Banco::class);
-            $table->string('endereço');
+            $table->foreignIdFor(App\Models\Banco::class);
+            $table->string('endereco');
             $table->string('agencia');
             $table->string('nome_agencia');
+            $table->integer('created_by');
+            $table->integer('updated_by');
             $table->timestamps();
         });
     }

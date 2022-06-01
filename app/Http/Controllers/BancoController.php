@@ -20,29 +20,29 @@ class BancoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
         $banco = $this->objBanco->all();
-        return view('index', compact('banco'));
+        return view('banco.index', compact('banco'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        return view('create');
+        return view('banco.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  App\Http\Requests\BancoRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(BancoRequest $request)
     {
@@ -52,7 +52,7 @@ class BancoController extends Controller
             'ispb' => $request->ispb
         ]);
         if($cadastrou){
-            return redirect('banco');
+            return redirect('/banco/index');
         }
     }
 
@@ -75,9 +75,7 @@ class BancoController extends Controller
      */
     public function edit($id)
     {
-        $banco = $this->objBanco->find($id);
-        $users = $this->objUser->all();
-        return view('create', compact('banco', 'users'));
+
     }
 
     /**
@@ -85,11 +83,13 @@ class BancoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function update(BancoRequest $request, $id)
     {
-        //
+        $banco = $this->objBanco->find($id);
+        $users = $this->objUser->all();
+        return view('banco.create', compact('banco', 'users'));
     }
 
     /**

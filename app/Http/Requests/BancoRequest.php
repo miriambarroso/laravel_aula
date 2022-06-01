@@ -24,7 +24,7 @@ class BancoRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero' => 'required|unique:post',
+            'numero' => 'required|unique:banco',
             'ispb' => 'required|numeric',
             'nome' => 'required',
         ];

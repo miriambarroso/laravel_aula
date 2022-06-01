@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Observers\AccountObserver;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Banco extends Model
 {
@@ -16,13 +18,6 @@ class Banco extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-    /**
-     * Usuário que criou e atualizou a informação.
-     *
-     * @var string
-     **/
-    const CREATED_BY = 'created_by';
-    const UPDATED_BY = 'updated_by';
 
     /**
      * Tabela associada com o model.
@@ -42,6 +37,20 @@ class Banco extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function ($model) {
+            $user = Auth::user();
+            $model->created_by = $user->id ?? 0;
+            $model->updated_by = $user->id ?? 0;
+        });
+        static::updating(function ($model) {
+            $user = Auth::user();
+            $model->updated_by = $user->id ?? 0;
+        });
+    }
 
     public function relAgencias(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
