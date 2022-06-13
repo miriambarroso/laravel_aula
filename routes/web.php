@@ -18,31 +18,30 @@ use App\Http\Controllers\ProvisionServer;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::post('/server',ProvisionServer::class);
+
+Route::get('/agencia/index', [AgenciaController::class, 'index'])->middleware(['auth', 'admin'])->name('agencia.index');
+Route::post('/agencia/store',  [AgenciaController::class, 'store'])->middleware(['auth', 'admin'])->name('agencia.store');
+Route::put('/agencia/{id}', [AgenciaController::class, 'update'])->middleware(['auth', 'admin'])->name('agencia.update');
+Route::get('/agencia/create', [AgenciaController::class, 'create'])->middleware(['auth', 'admin'])->name('agencia.create');
+Route::get('/agencia/{id}', [AgenciaController::class, 'show'])->middleware(['auth', 'admin'])->name('agencia.show');
 
 Route::get('/', [BancoController::class, 'index']);
-Route::get('/banco/index', [BancoController::class, 'index'])->middleware('auth')->name('banco.index');
-Route::get('/agencia/index', [AgenciaController::class, 'index']);
-Route::post('/server',ProvisionServer::class);
-Route::post('/banco/store',  [BancoController::class, 'store']);
-Route::post('/agencia/store',  [AgenciaController::class, 'store']);
-Route::get('/user/{id}', [UserController::class, 'show']);
-Route::put('/user/{id}', [UserController::class, 'update']);
-Route::put('/agencia/{id}', [AgenciaController::class, 'update']);
-Route::put('/banco/{id}', [BancoController::class, 'update']);
-Route::get('/banco/create', [BancoController::class, 'create'])->name('banco.create');
-Route::get('/agencia/create', [AgenciaController::class, 'create']);
-Route::get('/banco/{id}', [BancoController::class, 'show']);
-Route::get('/agencia/{id}', [AgenciaController::class, 'show']);
-Route::get('profile', [UserController::class, 'show'])->middleware('auth');
+Route::get('/banco/index', [BancoController::class, 'index'])->middleware(['auth', 'admin'])->name('banco.index');
+Route::post('/banco/store',  [BancoController::class, 'store'])->middleware(['auth', 'admin'])->name('banco.store');
+Route::put('/banco/{id}', [BancoController::class, 'update'])->middleware(['auth', 'admin'])->name('banco.update');
+Route::get('/banco/create', [BancoController::class, 'create'])->middleware(['auth', 'admin'])->name('banco.create');
+Route::get('/banco/{id}', [BancoController::class, 'show'])->middleware(['auth', 'admin'])->name('banco.show');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/user/{id}', [UserController::class, 'show'])->middleware(['auth', 'admin'])->name('user.show');
+Route::put('/user/{id}', [UserController::class, 'update'])->middleware(['auth', 'admin'])->name('user.update');
+Route::get('profile', [UserController::class, 'show'])->middleware('auth', 'admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth', 'admin'])->name('dashboard');
 
 require __DIR__.'/auth.php';
