@@ -8,6 +8,9 @@ use App\Models\User;
 
 class BancoController extends Controller
 {
+
+    public $layout = 'layouts.app';
+
     private $objUser;
     private $objBanco;
 

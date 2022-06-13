@@ -1,15 +1,17 @@
-@extends('layout')
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            @if(isset($banco)) ATUALIZAR BANCO @else CRIAR NOVO BANCO @endif
+        </h2>
+    </x-slot>
     <div id="createBanco" class="d-flex flex-column flex-nowrap justify-content-center mt-2">
-        <h1 class="text-center">@if(isset($banco)) ATUALIZAR BANCO @else CRIAR NOVO BANCO @endif</h1>
-        <hr>
         <div class="row justify-content-center">
             @if(isset($banco))
                 <form name="formEditBanco" id="formEditBanco" method="post" action="{{"banco/$banco->id"}}" class="col-6">
                     @method('PUT')
             @else
                 <form name="formCadBanco" id="formCadBanco" method="post" action="{{'store'}}" class="col-6">
-                     @endif
+            @endif
                     @csrf
                     <div id="formBanco" class="justify-content-center form-group">
                         <div class="form-group required col-12">
@@ -38,4 +40,5 @@
                 </form>
         </div>
     </div>
-@endsection
+</x-app-layout>
+
