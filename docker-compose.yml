@@ -43,6 +43,12 @@ services:
       - ./docker-compose/nginx:/etc/nginx/conf.d
     networks:
       - aula-laravel
+  adminer:
+      image: adminer
+      ports:
+          - 8080:8080
+      networks:
+          - aula-laravel
 
 networks:
   aula-laravel:

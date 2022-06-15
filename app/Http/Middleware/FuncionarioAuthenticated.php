@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserAuthenticated
+class FuncionarioAuthenticated
 {
     /**
      * Handle an incoming request.
@@ -24,12 +24,12 @@ class UserAuthenticated
             $user = Auth::user();
 
             // if user is not admin take him to his dashboard
-//            if (!$user->hasRole('user') ) {
-//                return redirect(route('dashboard'));
-//            }
+            if ( $user->hasRole('user') ) {
+                return redirect(route('dashboard'));
+            }
 
             // allow admin to proceed with request
-            if ( $user->hasRole('user') || $user->hasRole('admin') || $user->hasRole('funcionario')) {
+            else if ( $user->hasRole('funcionario') ) {
                 return $next($request);
             }
         }

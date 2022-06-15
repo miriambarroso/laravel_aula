@@ -35,6 +35,11 @@ class RedirectIfAuthenticated
                 else if($user->hasRole('user')) {
                     return redirect(route('dashboard'));
                 }
+
+                // to funcionario dashboard
+                else if($user->hasRole('funcionario')) {
+                    return redirect(route('dashboard'));
+                }
             }
         }
 

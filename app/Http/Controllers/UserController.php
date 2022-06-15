@@ -1,10 +1,10 @@
 <?php
- 
+
 namespace App\Http\Controllers;
- 
+
 use App\Http\Controllers\Controller;
 use App\Models\User;
- 
+
 class UserController extends Controller
 {
     /**
@@ -16,13 +16,13 @@ class UserController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('log')->only('index');
-        $this->middleware('subscribed')->except('store');
+//        $this->middleware('subscribed')->except('store');
     }
 
     /**
-     * 
+     *
      * Mostrar o perfil de um determinado usuário.
-     * 
+     *
      * @param  int  $id
      * @return \Illuminate\View\View
      */
