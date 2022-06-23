@@ -18,6 +18,14 @@
                     <x-nav-link :href="route('banco.index')" :active="request()->routeIs('banco.*')">
                         {{ __('Banco') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('agencia.index')" :active="request()->routeIs('agencia.*')">
+                        {{ __('Agência') }}
+                    </x-nav-link>
+                    @if (\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.*')">
+                        {{ __('Usuários') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -38,13 +46,15 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
+                        <x-dropdown-link :href="route('user.profile')">
+                            {{ __('Editar Perfil') }}
+                        </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Deslogar') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>

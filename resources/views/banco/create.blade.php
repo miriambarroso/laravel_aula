@@ -7,10 +7,10 @@
     <div id="createBanco" class="d-flex flex-column flex-nowrap justify-content-center mt-2">
         <div class="row justify-content-center">
             @if(isset($banco))
-                <form name="formEditBanco" id="formEditBanco" method="post" action="{{"banco/$banco->id"}}" class="col-6">
+                <form name="formEditBanco" id="formEditBanco" method="post" action="/banco/update/{{$banco->id}}" class="col-6">
                     @method('PUT')
             @else
-                <form name="formCadBanco" id="formCadBanco" method="post" action="{{'store'}}" class="col-6">
+                <form name="formCadBanco" id="formCadBanco" method="post" action="store" class="col-6">
             @endif
                     @csrf
                     <div id="formBanco" class="justify-content-center form-group">
@@ -34,8 +34,14 @@
                             @endforeach
                         </div>
                     @endif
-                    <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-dark">@if(isset($banco)) ATUALIZAR BANCO @else ADICIONAR BANCO @endif</button>
+                    <div class="flex items-center justify-center mt-4">
+                        <x-button class="btn btn-close-white ml-4" stile="color:white;" onclick='history.go(-1)'>
+                            {{ __('VOLTAR') }}
+                        </x-button>
+
+                        <x-button class="ml-4">
+                            @if(isset($banco)) ATUALIZAR BANCO @else ADICIONAR BANCO @endif
+                        </x-button>
                     </div>
                 </form>
         </div>

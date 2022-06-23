@@ -22,14 +22,8 @@ class UserAuthenticated
         {
             /** @var User $user */
             $user = Auth::user();
-
-            // if user is not admin take him to his dashboard
-//            if (!$user->hasRole('user') ) {
-//                return redirect(route('dashboard'));
-//            }
-
             // allow admin to proceed with request
-            if ( $user->hasRole('user') || $user->hasRole('admin') || $user->hasRole('funcionario')) {
+            if ( $user->hasRole('admin') || $user->id == $request->id) {
                 return $next($request);
             }
         }

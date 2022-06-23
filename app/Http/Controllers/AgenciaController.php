@@ -14,7 +14,7 @@ class AgenciaController extends Controller
     public function __construct()
     {
         $this->objUser = new User();
-        $this->objBanco = new Agencia();
+        $this->objAgencia = new Agencia();
     }
 
     /**
@@ -24,8 +24,8 @@ class AgenciaController extends Controller
      */
     public function index()
     {
-        $agencia = $this->objAgencia->all();
-        return view('agencia.index', compact('agencia'));
+        $agencias = $this->objAgencia? $this->objAgencia->all() : null ;
+        return view('agencia.index', compact('agencias'));
     }
 
     /**
@@ -80,7 +80,9 @@ class AgenciaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $agencia = $this->objAgencia->find($id);
+        return view('agencia.create', compact('agencia'));
+
     }
 
     /**
@@ -92,9 +94,23 @@ class AgenciaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $salvou = Agencia::where('id', $id)->update([
+            'agencia' => $request->agencia,
+            'nome_agencia' => $request->nome_agencia,
+            'endereco' => $request->endereco,
+            'banco_id' => $request->banco_id,
+            'fone' => $request->fone,
+            'tipo' => $request->tipo,
+            'fone1' => $request->fone1,
+            'tipo1' => $request->tipo1,
+        ]);
+
+        if ($salvou) {
+            return redirect('/agencia/index');
+        }
+
         $agencia = $this->objAgencia->find($id);
-        $users = $this->objUser->all();
-        return view('banco.create', compact('agencia', 'users'));
+        return view('agencia.create', compact('agencia'));
     }
 
     /**
@@ -105,6 +121,7 @@ class AgenciaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Agencia::where('id', $id)->delete();
+        return redirect('/agencia/index');
     }
 }

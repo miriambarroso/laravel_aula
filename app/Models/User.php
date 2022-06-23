@@ -14,6 +14,13 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
+     * Tabela associada com o model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -52,4 +59,12 @@ class User extends Authenticatable
     {
         return $this->getAttribute('role') === $role;
     }
+
+    public static function getRoles() {
+        return [
+            'user',
+            'admin',
+            'funcionario'
+        ];
+}
 }

@@ -37,12 +37,6 @@ class Agencia extends Model
      */
     protected $primaryKey = 'id';
 
-    /**
-     * The storage format ofthe model's date columns.
-     *
-     * @var string
-     */
-    protected $dateFormat = 'd-m-Y';
 
     public static function boot()
     {
@@ -62,6 +56,16 @@ class Agencia extends Model
     public function relBanco(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne('App\Models\Banco', 'id', 'banco_id');
+    }
+
+
+
+    public static function  type(){
+        return [
+            '1' => 'Telefone',
+            '2' => 'Telefone e Whatsapp',
+            '3' => 'Whatsapp'
+        ];
     }
 
 }

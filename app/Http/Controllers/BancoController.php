@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BancoRequest;
 use App\Models\Banco;
 use App\Models\User;
+use Symfony\Component\HttpFoundation\Request;
 
 class BancoController extends Controller
 {
@@ -27,8 +28,8 @@ class BancoController extends Controller
      */
     public function index()
     {
-        $banco = $this->objBanco->all();
-        return view('banco.index', compact('banco'));
+        $bancos = $this->objBanco->all();
+        return view('banco.index', compact('bancos'));
     }
 
     /**
@@ -78,7 +79,8 @@ class BancoController extends Controller
      */
     public function edit($id)
     {
-
+        $banco = $this->objBanco->find($id);
+        return view('banco.create', compact('banco'));
     }
 
     /**
@@ -88,11 +90,20 @@ class BancoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function update(BancoRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $salvou = Banco::where('id', $id)->update([
+            'nome' => $request->nome,
+            'numero' => $request->numero,
+            'ispb' => $request->ispb
+        ]);
+
+        if ($salvou) {
+            return redirect('/banco/index');
+        }
+
         $banco = $this->objBanco->find($id);
-        $users = $this->objUser->all();
-        return view('banco.create', compact('banco', 'users'));
+        return view('banco.create', compact('banco'));
     }
 
     /**
@@ -103,6 +114,7 @@ class BancoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Banco::where('id', $id)->delete();
+        return redirect('/banco/index');
     }
 }

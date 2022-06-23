@@ -23,39 +23,30 @@ Route::get('/', function () {
 
 Route::post('/server',ProvisionServer::class);
 
-Route::get('/agencia/index', [AgenciaController::class, 'index'])->middleware(['auth', 'admin'])->name('agencia.index');
-Route::post('/agencia/store',  [AgenciaController::class, 'store'])->middleware(['auth', 'admin'])->name('agencia.store');
-Route::put('/agencia/{id}', [AgenciaController::class, 'update'])->middleware(['auth', 'admin'])->name('agencia.update');
-Route::get('/agencia/create', [AgenciaController::class, 'create'])->middleware(['auth', 'admin'])->name('agencia.create');
-Route::get('/agencia/{id}', [AgenciaController::class, 'show'])->middleware(['auth', 'admin'])->name('agencia.show');
-Route::post('/agencia/store',  [AgenciaController::class, 'store'])->middleware(['auth', 'funcionario'])->name('agencia.store');
-Route::put('/agencia/{id}', [AgenciaController::class, 'update'])->middleware(['auth', 'funcionario'])->name('agencia.update');
-Route::get('/agencia/create', [AgenciaController::class, 'create'])->middleware(['auth', 'funcionario'])->name('agencia.create');
-Route::get('/agencia/{id}', [AgenciaController::class, 'show'])->middleware(['auth', 'funcionario'])->name('agencia.show');
-Route::get('/agencia/index', [AgenciaController::class, 'index'])->middleware(['auth', 'funcionario'])->name('agencia.index');
-Route::get('/agencia/{id}', [AgenciaController::class, 'show'])->middleware(['auth', 'user'])->name('agencia.show');
-Route::get('/agencia/index', [AgenciaController::class, 'index'])->middleware(['auth', 'user'])->name('agencia.index');
+Route::get('/agencia/destroy/{id}', [AgenciaController::class, 'destroy'])->middleware(['auth', 'admin'])->name('agencia.destroy');
+Route::get('/agencia/index', [AgenciaController::class, 'index'])->middleware(['auth'])->name('agencia.index');
+Route::post('/agencia/store',  [AgenciaController::class, 'store'])->middleware(['auth', 'logged'])->name('agencia.store');
+Route::put('/agencia/{id}', [AgenciaController::class, 'update'])->middleware(['auth', 'logged'])->name('agencia.update');
+Route::get('/agencia/edit/{id}', [AgenciaController::class, 'edit'])->middleware(['auth', 'logged'])->name('agencia.update');
+Route::get('/agencia/create', [AgenciaController::class, 'create'])->middleware(['auth', 'logged'])->name('agencia.create');
+Route::get('/agencia/{id}', [AgenciaController::class, 'show'])->middleware(['auth'])->name('agencia.show');
 
+Route::get('/banco/index', [BancoController::class, 'index'])->middleware(['auth', 'logged'])->name('banco.index');
+Route::get('/banco/destroy/{id}', [BancoController::class, 'destroy'])->middleware(['auth', 'admin'])->name('banco.destroy');
+Route::get('/banco/create', [BancoController::class, 'create'])->middleware(['auth', 'logged'])->name('banco.create');
+Route::post('/banco/store',  [BancoController::class, 'store'])->middleware(['auth', 'logged'])->name('banco.store');
+Route::put('/banco/update/{id}', [BancoController::class, 'update'])->middleware(['auth', 'logged'])->name('banco.update');
+Route::get('/banco/{id}', [BancoController::class, 'show'])->middleware(['auth', 'logged'])->name('banco.show');
+Route::get('/banco/edit/{id}', [BancoController::class, 'edit'])->middleware(['auth', 'logged'])->name('banco.show');
 
-Route::get('/banco/index', [BancoController::class, 'index'])->middleware(['auth', 'admin'])->name('banco.index');
-Route::post('/banco/store',  [BancoController::class, 'store'])->middleware(['auth', 'admin'])->name('banco.store');
-Route::put('/banco/{id}', [BancoController::class, 'update'])->middleware(['auth', 'admin'])->name('banco.update');
-Route::get('/banco/create', [BancoController::class, 'create'])->middleware(['auth', 'admin'])->name('banco.create');
-Route::get('/banco/{id}', [BancoController::class, 'show'])->middleware(['auth', 'admin'])->name('banco.show');
-Route::get('/banco/create', [BancoController::class, 'create'])->middleware(['auth', 'funcionario'])->name('banco.create');
-Route::post('/banco/store',  [BancoController::class, 'store'])->middleware(['auth', 'funcionario'])->name('banco.store');
-Route::put('/banco/{id}', [BancoController::class, 'update'])->middleware(['auth', 'funcionario'])->name('banco.update');
-Route::get('/banco/index', [BancoController::class, 'index'])->middleware(['auth', 'funcionario'])->name('banco.index');
-Route::get('/banco/{id}', [BancoController::class, 'show'])->middleware(['auth', 'funcionario'])->name('banco.show');
-
-Route::get('/user/{id}', [UserController::class, 'show'])->middleware(['auth', 'admin'])->name('user.show');
-Route::put('/user/{id}', [UserController::class, 'update'])->middleware(['auth', 'admin'])->name('user.update');
-Route::get('profile', [UserController::class, 'show'])->middleware('auth', 'admin')->name('profile');
-Route::get('/user/{id}', [UserController::class, 'show'])->middleware(['auth', 'funcionario'])->name('user.show');
-Route::put('/user/{id}', [UserController::class, 'update'])->middleware(['auth', 'funcionario'])->name('user.update');
-Route::get('profile', [UserController::class, 'show'])->middleware('auth', 'funcionario')->name('profile');
-Route::get('/user/{id}', [UserController::class, 'show'])->middleware(['auth', 'user'])->name('user.show');
-Route::get('profile', [UserController::class, 'show'])->middleware('auth', 'user')->name('profile');
+Route::get('/user/create', [UserController::class, 'create'])->middleware(['auth', 'admin'])->name('user.create');
+Route::get('/user/index', [UserController::class, 'index'])->middleware(['auth', 'admin'])->name('user.index');
+Route::get('/user/{id}', [UserController::class, 'show'])->middleware(['auth', 'logged'])->name('user.show');
+Route::get('/user/edit/{id}', [UserController::class, 'edit'])->middleware(['auth', 'admin'])->name('user.edit');
+Route::post('/user', [UserController::class, 'store'])->middleware(['auth', 'admin'])->name('user.store');
+Route::get('/user/destroy/{id}', [UserController::class, 'destroy'])->middleware(['auth', 'logged'])->name('user.destroy');
+Route::get('/profile', [UserController::class, 'show'])->middleware(['auth'])->name('user.profile');
+Route::post('/profile/update/{id}', [UserController::class, 'update'])->middleware(['user'])->name('user.update');
 
 
 Route::get('/', function () {

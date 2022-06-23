@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d645637-0888-4f8f-a53d-51e10d2816f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/FuncionarioAuthenticated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aula.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aula.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="6d645637-0888-4f8f-a53d-51e10d2816f3" name="Default Changelist" comment="adicionando middleware admin e user">
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/AdminAuthenticated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/LoggedAuthenticated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2022_06_22_212039_insert_user_default.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgenciaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgenciaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BancoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BancoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/AdminAuthenticated​.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/UserAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/UserAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_06_13_002425_add_role_column_to_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_06_13_002425_add_role_column_to_users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Agencia.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Agencia.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_04_28_234529_create_agencia_bancaria.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_04_28_234529_create_agencia_bancaria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/agencia/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agencia/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/agencia/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agencia/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/agencia/update.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/agencia/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/banco/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/banco/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/banco/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/banco/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/banco/update.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/banco/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,12 +188,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/storage/framework/views" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/storage/framework/views" />
+      <recent name="$PROJECT_DIR$/app/Http/Requests" />
+      <recent name="$PROJECT_DIR$/resources/views/user" />
       <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
@@ -203,6 +226,7 @@
       <workItem from="1654030951229" duration="4720000" />
       <workItem from="1655153291557" duration="12046000" />
       <workItem from="1655251559395" duration="1266000" />
+      <workItem from="1655904589582" duration="36256000" />
     </task>
     <task id="LOCAL-00001" summary="validate e view editar">
       <created>1653425935821</created>

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('agencia_bancaria', function (Blueprint $table) {
             $table->id();
-            $table->integer('fone');
-            $table->integer('fone1');
+            $table->bigInteger('fone');
+            $table->bigInteger('fone1');
             $table->integer('tipo');
             $table->integer('tipo1');
             $table->foreignIdFor(App\Models\Banco::class);
