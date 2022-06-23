@@ -8,6 +8,8 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: aula-laravel
+    depends_on:
+        -   db
     container_name: aula_app
     restart: unless-stopped
     working_dir: /var/www/
@@ -25,8 +27,6 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
     volumes:
       - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     networks:
